@@ -20,5 +20,6 @@ const createElement = () => {
   };
 };
 
-new Array(25).fill(null).map(() => createElement());
+const createDataList = new Array(25).fill(null).map(() => createElement());
 
+export {NAMES, COLLECTION_TEXT, createDataList};
