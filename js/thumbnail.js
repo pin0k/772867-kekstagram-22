@@ -1,7 +1,6 @@
-import {getRandomInteger, createDataList} from './data.js';
+import {createDataList} from './data.js';
 
 const pictureSection = document.querySelector('.pictures');
-
 
 const thumbnailSection = document.createElement('section');
 thumbnailSection.classList.add('img-thubmnail');
@@ -10,19 +9,13 @@ const templateFragment = document.querySelector('#picture').content;
 const template = templateFragment.querySelector('div');
 const fragment = document.createDocumentFragment();
 
-
-createDataList.forEach((element, index) => {
+for (let i = 0; i < createDataList.length; i++) {
   const newThumbnail = template.cloneNode(true);
-
-  newThumbnail.querySelector('img').src = element.url;
-  newThumbnail.querySelector('.picture__comments').textContent = element.likes;
-  //newThumbnail.querySelector('.picture__likes').textContent = element.comments[getRandomInteger(1,6)].message;
-  console.log(element.comments[index]);
-
+  newThumbnail.querySelector('img').src = createDataList[i].url;
+  newThumbnail.querySelector('.picture__likes').textContent = createDataList[i].likes;
+  newThumbnail.querySelector('.picture__comments').textContent = createDataList[i].comments.length;
   fragment.appendChild(newThumbnail);
-});
+}
 
 thumbnailSection.appendChild(fragment);
-
-
 pictureSection.appendChild(thumbnailSection);
