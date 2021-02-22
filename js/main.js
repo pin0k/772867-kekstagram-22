@@ -1,3 +1,3 @@
 import './data.js';
-import './creating-thumbnail.js';
-import './creating-full-size-image.js';
+import './thumbnail.js';
+//import './full-size-image.js';
